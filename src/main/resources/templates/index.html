@@ -2,10 +2,57 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>BANK_APPLICATION</title>
+    <title>Home- BANK_APPLICATION</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
 
 <SPAN> welcome to the code of the world</SPAN>
+
+<div class="adminHeader">
+    <h3 style="color:white;">Login </h3>
+</div>
+<br>
+<br>
+
+
+
+<div class="container">
+    <div class="row ">
+        <div class="col-md-12  ">
+            <form  th:action="@{/admin}" th:object="${adminLogin}" method="Post" >
+                <div class="row justify-content-center">
+                    <!--part-->
+                    <!--Login Form-->
+                    <div class="col-md-4 ">
+                        <p th:if="${invalidError}" class="error" style="color: red">username or password is wrong</p>
+                        <div class="md-form mb-0">
+                            <label for="admin_username_login" class="">username</label>
+                            <input type="text" id="admin_username_login"   name="admin_username" class="form-control">
+
+                        </div>
+                        <div class="md-form mb-0">
+                            <label for="admin_password_login" class="">password</label>
+                            <input type="password"  id="admin_password_login" name="admin_password" class="form-control">
+                        </div>
+
+                        </br>
+                        <div class="col-xl">
+                            <input type="submit" value="Login" class="btn btn-primary">
+                        </div>
+                    </div>
+                    <!--Grid column-->
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+
 </body>
+
 </html>
