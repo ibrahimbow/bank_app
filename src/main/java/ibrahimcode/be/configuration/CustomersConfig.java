@@ -1,13 +1,12 @@
 package ibrahimcode.be.configuration;
 
+import ibrahimcode.be.data.implementation.AdminDaoImpl;
 import ibrahimcode.be.data.implementation.CustomerDaoImpl;
+import ibrahimcode.be.models.Admin;
 import ibrahimcode.be.models.Customer;
+import ibrahimcode.be.services.implementation.AdminServiceImpl;
 import ibrahimcode.be.services.implementation.CustomerServiceImpl;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Scope;
-
+import org.springframework.context.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,11 +15,22 @@ import java.util.List;
 public class CustomersConfig {
 
 
+    static int id = 0;
+
     @Bean
     @Scope("prototype")  //  not only for only single instant run
     public Customer customer(){
-        return new Customer();
+        id++;
+        return new Customer(id);
     }
+
+    @Bean
+    @Scope("prototype")
+    public Admin admin(){
+        return new Admin();
+    }
+
+
 
     @Bean
     public List<Customer> customerList(){
@@ -34,9 +44,20 @@ public class CustomersConfig {
     }
 
     @Bean
-    public CustomerServiceImpl mackService(){
+    public CustomerServiceImpl mockService(){
         return new CustomerServiceImpl();
     }
 
+
+
+
+    @Bean
+    public AdminDaoImpl mockDoaAdmin(){
+        return new AdminDaoImpl();
+    }
+    @Bean
+    public AdminServiceImpl mockAdminService(){
+        return new AdminServiceImpl();
+    }
 
 }

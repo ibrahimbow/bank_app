@@ -2,7 +2,6 @@ package ibrahimcode.be.data.implementation;
 
 import ibrahimcode.be.data.CustomerDao;
 import ibrahimcode.be.models.Customer;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -12,16 +11,10 @@ import java.util.Random;
 @Component
 public class CustomerDaoImpl implements CustomerDao {
 
-    private List<Customer> customerDB;
-
-    @Autowired
-    public void setCustomerList(List<Customer> customerDB) {
-        this.customerDB = customerDB;
-    }
-
+    private List<Customer> customerDB =new ArrayList<>();
 
     @Override
-    public boolean createNewCurrentAccount(Customer customer) {
+    public boolean createNewAccount(Customer customer) {
         if (!this.customerDB.contains(customer)) {
             this.customerDB.add(customer);
             return true;

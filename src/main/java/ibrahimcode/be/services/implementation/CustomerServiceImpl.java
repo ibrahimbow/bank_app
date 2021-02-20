@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Component("mockService")
+@Component
 public class CustomerServiceImpl  implements CustomerService {
 
 
@@ -22,7 +22,7 @@ public class CustomerServiceImpl  implements CustomerService {
 
     @Override
     public void addCustomer(Customer customer) {
-        this.customerDaoImpl.createNewCurrentAccount(customer);
+        this.customerDaoImpl.createNewAccount(customer);
     }
 
 
@@ -36,6 +36,14 @@ public class CustomerServiceImpl  implements CustomerService {
 
         this.customerDaoImpl.openNewCurrentAccount(id,initialCredit);
 
+    }
+
+    @Override
+    public void addCustomers(List<Customer> customers) {
+        // to add the list in the database Dao (MOCK)
+        for (Customer customer : customers) {
+            this.customerDaoImpl.createNewAccount(customer);
+        }
     }
 
     @Override

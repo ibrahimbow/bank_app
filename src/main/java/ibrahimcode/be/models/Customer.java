@@ -13,6 +13,10 @@ public class Customer {
     public Customer() {
     }
 
+    public Customer(int customerID) {
+        this.customerID = customerID;
+    }
+
     public Customer(int customerID, String name, String surname, double balance) {
         this.customerID = customerID;
         this.name = name;

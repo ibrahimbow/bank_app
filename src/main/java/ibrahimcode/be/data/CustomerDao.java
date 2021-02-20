@@ -7,7 +7,7 @@ import java.util.List;
 public interface CustomerDao {
 
 
-    boolean createNewCurrentAccount(Customer customer);
+    boolean createNewAccount(Customer customer);
 
     Customer getCustomerInfo(int id);
 
