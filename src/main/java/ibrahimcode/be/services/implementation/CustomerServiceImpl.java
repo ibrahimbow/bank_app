@@ -32,15 +32,8 @@ public class CustomerServiceImpl  implements CustomerService {
     }
 
     @Override
-    public void openNewCurrentAccount(int id, double initialCredit) {
-
-        this.customerDaoImpl.openNewCurrentAccount(id,initialCredit);
-
-    }
-
-    @Override
     public void addCustomers(List<Customer> customers) {
-        // to add the list in the database Dao (MOCK)
+        // to add the list in the database Dao (MOCK) haha not real database ;)
         for (Customer customer : customers) {
             this.customerDaoImpl.createNewAccount(customer);
         }

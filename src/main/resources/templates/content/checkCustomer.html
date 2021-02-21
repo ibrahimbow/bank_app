@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Check Customer - BANK_APPLICATION</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+
+<SPAN> welcome to the Customer Service</SPAN>
+
+
+<div class="container">
+    <div class="row ">
+        <div class="col-md-12  ">
+            <form  th:action="@{/checkCustomerID}" th:object="${customerCheck}" method="Post" >
+                <div class="row justify-content-center">
+                    <!--part-->
+                    <!--Login Form-->
+                    <div class="col-md-4 ">
+<!--                        <p th:if="${invalidError}" class="error" style="color: red">Customer id not exists</p>-->
+                        <div class="md-form mb-0">
+                            <label for="customerID" class="">customerID</label>
+                            <input type="text" id="customerID"  name="customerID" class="form-control">
+
+                        </div>
+
+                        <div class="col-xl">
+                            <input type="submit" value="Search" class="btn btn-primary">
+                        </div>
+                    </div>
+                    <!--Grid column-->
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+
+<a th:href="@{/showInfo}" style="color: dodgerblue; float: left"> Show INFO</a>
+
+
+
+
+
+</body>
+
+</html>

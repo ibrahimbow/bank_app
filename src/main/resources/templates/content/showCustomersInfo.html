@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home- BANK_APPLICATION</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+
+<SPAN> welcome to Customers Info</SPAN>
+
+<br>
+<br>
+
+
+
+<div class="container">
+    <div class="row ">
+        <div class="col-md-12  ">
+
+            <table border="1" class = "table table-striped table-responsive-md">
+                <thead>
+                <tr style="background-color:#06a4e3; color: white">
+                    <th>CustomerID</th>
+                    <th>name</th>
+                    <th>surname</th>
+                    <th>balance</th>
+                    <th>Type Of Account</th>
+                    <th>Initial Credit</th>
+                    <th>Credit Number</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="customer: ${customerList}">
+
+                    <td th:text="${customer.getCustomerID()}"></td>
+                    <td th:text="${customer.getName()}"></td>
+                    <td th:text="${customer.getSurname()}"></td>
+                    <td th:text="${customer.getBalance()}"></td>
+
+                    <td  th:text="${customer.getTransactionAccount()} ? ${customer.getTransactionAccount().typeOfAccount} : 'Null'"></td>
+                    <td th:text="${customer.getTransactionAccount()} ? ${customer.getTransactionAccount().initialCredit} : 'Null'"></td>
+                    <td th:text="${customer.getTransactionAccount()} ? ${customer.getTransactionAccount().getCardNumber()} : 'Null'"></td>
+                </tr>
+                </tbody>
+            </table>
+            <hr>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+</body>
+
+</html>

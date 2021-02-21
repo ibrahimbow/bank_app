@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>Home- BANK_APPLICATION</title>
@@ -7,7 +8,7 @@
 </head>
 <body>
 
-<SPAN> welcome to the code of the world</SPAN>
+<SPAN> welcome to the BANK APP</SPAN>
 
 <div class="adminHeader">
     <h3 style="color:white;">Login </h3>
@@ -25,18 +26,16 @@
                     <!--part-->
                     <!--Login Form-->
                     <div class="col-md-4 ">
-                        <p th:if="${invalidError}" class="error" style="color: red">username or password is wrong</p>
+                        <p th:if="${invalid_user_error}" class="error" style="color: red">username or password is wrong</p>
                         <div class="md-form mb-0">
                             <label for="admin_username_login" class="">username</label>
-                            <input type="text" id="admin_username_login"   name="admin_username" class="form-control">
+                            <input type="text" id="admin_username_login"   name="username" class="form-control">
 
                         </div>
                         <div class="md-form mb-0">
                             <label for="admin_password_login" class="">password</label>
-                            <input type="password"  id="admin_password_login" name="admin_password" class="form-control">
+                            <input type="password"  id="admin_password_login" name="password" class="form-control">
                         </div>
-
-                        </br>
                         <div class="col-xl">
                             <input type="submit" value="Login" class="btn btn-primary">
                         </div>
@@ -52,6 +51,18 @@
 <br>
 <br>
 <br>
+
+
+
+
+
+
+
+
+
+
+
+
 
 </body>
 

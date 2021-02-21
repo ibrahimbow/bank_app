@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Open New Current Account - BANK_APPLICATION</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+
+<SPAN> Account is exist welcome</SPAN>
+
+
+
+
+<div class="container">
+    <div class="row ">
+        <div class="col-md-12  ">
+            <table border="1" class = "table table-striped table-responsive-md">
+                <thead>
+                <tr style="background-color:#06a4e3; color: white">
+                    <th>name</th>
+                    <th>surname</th>
+                    <th>balance</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="customer: ${customerInfo}">
+
+                    <td th:text="${customer.getName()}"></td>
+                    <td th:text="${customer.getSurname()}"></td>
+                    <td th:text="${customer.getBalance()}"></td>
+                </tr>
+                </tbody>
+            </table>
+            <hr>
+            <br>
+            <br>
+            <br>
+            <span>Open Current Account</span>
+
+            <form  th:action="@{/openCurrentAccount}" th:object="${customerInfo}" method="Post" >
+                <div class="row justify-content-center">
+                    <!--part-->
+                    <!--Login Form-->
+                    <div class="col-md-4 ">
+
+                        <div class="md-form mb-0">
+                            <label for="customerID" class="">customerID</label>
+                            <input type="text" id="customerID"  th:field="*{customerID}" name="customerID" class="form-control">
+
+                        </div>
+
+                        <div class="md-form mb-0">
+                            <label for="customerID" class="">InitialCredit</label>
+                            <input type="text" id="InitialCredit"  th:field="*{transactionAccount.initialCredit}" name="InitialCredit" class="form-control">
+
+                        </div>
+                        <div class="col-xl">
+                            <input type="submit" value="Search" class="btn btn-primary">
+                        </div>
+                    </div>
+                    <!--Grid column-->
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+
+<a th:href="@{/showInfo}" style="color: dodgerblue; float: left"> Show INFO</a>
+
+
+
+
+
+</body>
+
+</html>

@@ -3,6 +3,7 @@ package ibrahimcode.be;
 import ibrahimcode.be.configuration.CustomersConfig;
 import ibrahimcode.be.models.Admin;
 import ibrahimcode.be.models.Customer;
+import ibrahimcode.be.models.TransactionAccount;
 import ibrahimcode.be.services.AdminService;
 import ibrahimcode.be.services.CustomerService;
 import org.springframework.boot.SpringApplication;
@@ -15,16 +16,16 @@ import java.util.List;
 public class BankApp {
 
     public static void main(String[] args) {
-        SpringApplication.run(BankApp.class,args);
+
 
 
         try (ConfigurableApplicationContext applicationContext =
                      new AnnotationConfigApplicationContext(CustomersConfig.class)) {
+            SpringApplication.run(BankApp.class, args);
 
+            AdminService adminServiceImpl = applicationContext.getBean("mockAdminService", AdminService.class);
 
-            AdminService adminServiceImpl = applicationContext.getBean("mockAdminService",AdminService.class);
-
-            Admin admin = applicationContext.getBean("admin",Admin.class);
+            Admin admin = applicationContext.getBean("admin", Admin.class);
             admin.setName("ibrahimbow");
             admin.setUsername("bbg");
             admin.setPassword("bbg");
@@ -57,7 +58,7 @@ public class BankApp {
             customer3.setSurname("java11Dev");
             customer3.setBalance(1990);
 
-            Customer customer4 = applicationContext.getBean("customer",Customer.class);
+            Customer customer4 = applicationContext.getBean("customer", Customer.class);
             customer4.setName("Sam");
             customer4.setSurname("java11EEDev");
             customer4.setBalance(1760);
@@ -74,15 +75,59 @@ public class BankApp {
             System.out.println("\n\n");
             customerImpl.addCustomers(customerList);
 
+            //======================================================================================
+            TransactionAccount transactionAccount = applicationContext.getBean("transactionAccount",TransactionAccount.class);
+
+            int id = 2;
+            int initialCredit = 100;
+
+            if (customerImpl.getCustomer(id) != null) {
+                if (initialCredit != 0) {
+                    // open new current account
+                    transactionAccount.setId(id);
+                    transactionAccount.setInitialCredit(initialCredit);
+                    transactionAccount.setTypeOfAccount("Current Account");
+                    transactionAccount.setCardNumber(53215);
+
+                    customerImpl.getCustomer(id).setTransactionAccount(transactionAccount);
+
+                    // here we cut the money for customer account
+                    double restMoney = (initialCredit - customerList.get(id).getBalance());
+                    customerList.get(id).setBalance(restMoney);
+                }else {
+                    System.out.println("this initial credit is not not");
+                }
+            } else {
+                System.out.println("this is null");
+            }
+
+            System.out.println(customerImpl.showAllCustomers());
+        //======================================================================================
+
+
+
+//             show one element from the list by Id
+            System.out.println("the customer 2 : " + customerImpl.getCustomer(2));
+
+
+            // accept the the CustomerId and initialCredit
+
+
+
             //print all elements in the list
             System.out.println(customerImpl.showAllCustomers());
 
-//             show one element from the list by Id
-//            System.out.println(customerImpl.getCustomer(2));
         } catch (Exception ex) {
             ex.printStackTrace();
         }
 
 
     }
+
+
+
+
+
 }
+
+

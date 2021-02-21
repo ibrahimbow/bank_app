@@ -18,8 +18,6 @@ public class AdminServiceImpl implements AdminService {
     }
 
 
-
-
     @Override
     public void addAdmin(Admin admin) {
         this.adminDaoImpl.addAdmin(admin);

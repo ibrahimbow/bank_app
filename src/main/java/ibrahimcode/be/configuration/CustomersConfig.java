@@ -4,6 +4,7 @@ import ibrahimcode.be.data.implementation.AdminDaoImpl;
 import ibrahimcode.be.data.implementation.CustomerDaoImpl;
 import ibrahimcode.be.models.Admin;
 import ibrahimcode.be.models.Customer;
+import ibrahimcode.be.models.TransactionAccount;
 import ibrahimcode.be.services.implementation.AdminServiceImpl;
 import ibrahimcode.be.services.implementation.CustomerServiceImpl;
 import org.springframework.context.annotation.*;
@@ -26,6 +27,13 @@ public class CustomersConfig {
 
     @Bean
     @Scope("prototype")
+    public TransactionAccount transactionAccount(){
+        return new TransactionAccount();
+    }
+
+
+    @Bean
+    @Scope("prototype")
     public Admin admin(){
         return new Admin();
     }
@@ -38,6 +46,7 @@ public class CustomersConfig {
     }
 
 
+
     @Bean
     public CustomerDaoImpl mockDao(){
         return new CustomerDaoImpl();
@@ -47,9 +56,6 @@ public class CustomersConfig {
     public CustomerServiceImpl mockService(){
         return new CustomerServiceImpl();
     }
-
-
-
 
     @Bean
     public AdminDaoImpl mockDoaAdmin(){
@@ -61,3 +67,5 @@ public class CustomersConfig {
     }
 
 }
+
+
