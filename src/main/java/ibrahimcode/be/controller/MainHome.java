@@ -90,7 +90,7 @@ public class MainHome {
         customer2.setCustomerID(2);
         customer2.setName("Bart");
         customer2.setSurname("javaEE11");
-        customer2.setBalance(1550);
+        customer2.setBalance(0);
 
         Customer customer3 = new Customer();
         customer3.setCustomerID(3);

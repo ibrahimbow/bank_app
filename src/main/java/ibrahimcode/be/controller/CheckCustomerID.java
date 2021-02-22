@@ -41,7 +41,8 @@ public class CheckCustomerID {
 
         int customer_id =  customer.getCustomerID();
 
-            if (customerServiceImpl.getCustomer(customer_id)!=null) {
+            if (customerServiceImpl.getCustomer(customer_id)!=null){
+
                 model.addAttribute("customerInfo", customerServiceImpl.getCustomer(customer_id));
                 modelAndView.setViewName("/content/openNewCurrentAccount");
                 return modelAndView;
@@ -50,7 +51,6 @@ public class CheckCustomerID {
                 modelAndView.setViewName("/content/checkCustomer");
                 return modelAndView;
     }
-
 
 
 }
