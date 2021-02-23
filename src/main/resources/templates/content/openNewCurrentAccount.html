@@ -6,12 +6,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
-
 <br><br>
 <div class="row justify-content-center">
     <SPAN> welcome to your account </SPAN>
 </div>
-
 <br><br>
 <div class="container">
     <div class="row ">
@@ -44,20 +42,16 @@
             <br>
             <br>
             <br>
-
             <div class="row justify-content-center">
                 <span style="font-weight: bold">Open Current Account</span>
             </div>
-                <hr>
-
-
+            <hr>
             <form  th:action="@{/openCurrentAccount}" th:object="${customerInfo}" method="Post" >
                 <div class="row justify-content-center">
                     <!--part-->
                     <!--Login Form-->
                     <div class="col-md-4 ">
                         <p th:if="${invalid_CurrentAccount_error}" class="error" style="color: red">You Already have current Account</p>
-
                         <div class="md-form mb-0">
                             <label for="customerID" class="">customerID</label>
                             <input type="text" id="customerID"  th:field="*{customerID}" name="customerID" class="form-control" readonly>
@@ -76,21 +70,13 @@
                     </div>
                     <!--Grid column-->
                 </div>
-
             </form>
-
         </div>
     </div>
 </div>
 <br>
-
 <div class="row justify-content-center">
     <a th:href="@{/customer_Service}" style="color: dodgerblue; float: left"> Back to Customer Service</a>
 </div>
-
-
-
-
 </body>
-
 </html>

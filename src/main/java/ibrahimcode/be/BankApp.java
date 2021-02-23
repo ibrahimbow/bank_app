@@ -17,12 +17,12 @@ public class BankApp {
 
     public static void main(String[] args) {
 
-
-
         try (ConfigurableApplicationContext applicationContext =
                      new AnnotationConfigApplicationContext(CustomersConfig.class)) {
-            SpringApplication.run(BankApp.class, args);
 
+            SpringApplication.run(BankApp.class, args); // run the springboot
+
+            // here we can use SpringMVC @Beans
             AdminService adminServiceImpl = applicationContext.getBean("mockAdminService", AdminService.class);
 
             Admin admin = applicationContext.getBean("admin", Admin.class);
@@ -46,8 +46,8 @@ public class BankApp {
 
 
             // we add only one object
-//            customerImpl.addCustomer(customer1);
-//
+            //customerImpl.addCustomer(customer1);
+
             Customer customer2 = applicationContext.getBean("customer", Customer.class);
             customer2.setName("Bart");
             customer2.setSurname("javaEE11");
@@ -102,17 +102,10 @@ public class BankApp {
             }
 
             System.out.println(customerImpl.showAllCustomers());
-        //======================================================================================
+            //======================================================================================
 
-
-
-//             show one element from the list by Id
+            //show one element from the list by Id
             System.out.println("the customer 2 : " + customerImpl.getCustomer(2));
-
-
-            // accept the the CustomerId and initialCredit
-
-
 
             //print all elements in the list
             System.out.println(customerImpl.showAllCustomers());
@@ -120,14 +113,7 @@ public class BankApp {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-
-
     }
-
-
-
-
-
 }
 
 

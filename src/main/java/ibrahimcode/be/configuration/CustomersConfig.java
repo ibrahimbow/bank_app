@@ -31,21 +31,16 @@ public class CustomersConfig {
         return new TransactionAccount();
     }
 
-
     @Bean
     @Scope("prototype")
     public Admin admin(){
         return new Admin();
     }
 
-
-
     @Bean
     public List<Customer> customerList(){
         return new ArrayList<>();
     }
-
-
 
     @Bean
     public CustomerDaoImpl mockDao(){

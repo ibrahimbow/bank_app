@@ -1,6 +1,5 @@
 package ibrahimcode.be.controller;
 
-
 import ibrahimcode.be.models.Customer;
 import ibrahimcode.be.models.TransactionAccount;
 import ibrahimcode.be.services.implementation.CustomerServiceImpl;
@@ -30,15 +29,14 @@ public class NewCurrentAccount {
 
 
 
-
     @PostMapping("/openCurrentAccount")
     public ModelAndView openCurrentAccountForCustomer(@ModelAttribute("customerInfo") Customer customer,
-                                   Model model){
+                                                      Model model){
         ModelAndView modelAndView = new ModelAndView();
         int customerId = customer.getCustomerID();
         double initialCredit = customer.getTransactionAccount().getInitialCredit();
         double balance = customerServiceImpl.getCustomer(customerId).getBalance();
-
+        // check if the customer has already current account
         if(customerServiceImpl.getCustomer(customerId) != null &&
                 customerServiceImpl.getCustomer(customerId).getTransactionAccount().getInitialCredit()!=0){
             model.addAttribute("customerInfo", customerServiceImpl.getCustomer(customerId));
@@ -69,7 +67,7 @@ public class NewCurrentAccount {
     }
 
 
-        //=======================GenerateCardNumberVerySimple==============
+    //=======================GenerateCardNumberVerySimple==============
 
     private int generateRandomAccountNumber() {
         Random random = new Random();

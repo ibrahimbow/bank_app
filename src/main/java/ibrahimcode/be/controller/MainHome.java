@@ -30,11 +30,11 @@ public class MainHome {
 
 
     @RequestMapping("/")
-    public ModelAndView index (Model model){
+    public ModelAndView index(Model model){
         ModelAndView modelAndView = new ModelAndView();
 
         customerServiceImpl.addCustomers(addCustomers()); // Add customers ;)
-        adminServiceImpl.addAdmin(adminInfo());// Add admin Info
+        adminServiceImpl.addAdmin(adminInfo());// Add admin Info ;)
 
         model.addAttribute("customerList",customerServiceImpl.showAllCustomers());
 
@@ -78,7 +78,7 @@ public class MainHome {
 
 
 
-    //private methods for already exists customer and admin
+    //private methods for add customers to be already exists customer
     private List<Customer> addCustomers(){
         Customer customer1 = new Customer();
         customer1.setCustomerID(1);
@@ -115,7 +115,7 @@ public class MainHome {
         return customerList;
     }
 
-
+    //private methods for add admin
     private Admin adminInfo(){
 
         Admin admin = new Admin();

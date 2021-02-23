@@ -17,7 +17,7 @@ public class TransactionAccount {
         this.id = id;
         this.initialCredit = initialCredit;
         this.cardNumber = cardNumber;
-        this.typeOfAccount = typeOfAccount; // here is to mention the type of account(Current Account or Saving Account)
+        this.typeOfAccount = typeOfAccount; // here is to mention the type of account(Current Account)
     }
 
 

@@ -23,14 +23,14 @@ public class ShowCustomersInfo {
 
 
 
-// show the information of all customers
+    // show the information of all customers
     @RequestMapping("/showInfo")
     public ModelAndView showCustomersInfo(Model model){
         ModelAndView modelAndView = new ModelAndView();
 
-            model.addAttribute("customerList", customerServiceImpl.showAllCustomers());
+        model.addAttribute("customerList", customerServiceImpl.showAllCustomers());
 
-            modelAndView.setViewName("/content/showCustomersInfo");
+        modelAndView.setViewName("/content/showCustomersInfo");
 
         return modelAndView;
 

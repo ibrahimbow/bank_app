@@ -29,27 +29,24 @@ public class CheckCustomerID {
         model.addAttribute("customerCheck",new Customer());
         modelAndView.setViewName("/content/checkCustomer");
         return modelAndView;
-
     }
 
 
     // Check customer Id if it is exists or not ?
     @PostMapping("/checkCustomerID")
     public ModelAndView checkCustomerID(@ModelAttribute("customerCheck") Customer customer,
-                                   Model model){
+                                        Model model){
         ModelAndView modelAndView = new ModelAndView();
 
         int customer_id =  customer.getCustomerID();
-
-            if (customerServiceImpl.getCustomer(customer_id)!=null){
-
-                model.addAttribute("customerInfo", customerServiceImpl.getCustomer(customer_id));
-                modelAndView.setViewName("/content/openNewCurrentAccount");
-                return modelAndView;
-            }
-                model.addAttribute("invalid_user_error", true);
-                modelAndView.setViewName("/content/checkCustomer");
-                return modelAndView;
+        if (customerServiceImpl.getCustomer(customer_id)!=null){
+            model.addAttribute("customerInfo", customerServiceImpl.getCustomer(customer_id));
+            modelAndView.setViewName("/content/openNewCurrentAccount");
+            return modelAndView;
+        }
+        model.addAttribute("invalid_user_error", true);
+        modelAndView.setViewName("/content/checkCustomer");
+        return modelAndView;
     }
 
 
